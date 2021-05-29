@@ -5,7 +5,7 @@ def ListHtml() {
     return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
 }
 
-def publishHTML() {
+def PublishHTML() {
     for (f in  ListHtml()) {
         if (! f.directory) {
             echo """Publishing ${f.name} ${f.path} ${f.directory} ${f.length} ${f.lastModified}"""
@@ -27,5 +27,5 @@ def publishHTML() {
 }
 
 def call(args) {
-    publishHTML()
+    PublishHTML()
 }
