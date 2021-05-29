@@ -9,6 +9,8 @@ import jenkins.pipeline.lib.Constants
 
 def test(String name, String command) {
     echo "Sampling2 $name $command"
+    sh(script:'''#!/bin/bash
+    source ''' + name + '''/bin/activate && ''' + command, label: "VIRTUALENV 2: ${script}")
 }
 
 def call(String name = "venv", String command="python --version") {
