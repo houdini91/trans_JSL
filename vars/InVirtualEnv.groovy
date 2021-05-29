@@ -7,7 +7,8 @@ def InVirtualEnv(String name, String command) {
 }
 
 def call(String name = "venv", String command="python --version") {
-    InVirtualEnv(name, command)
+    // InVirtualEnv(name, command)
+     echo "Sampling $name $command"
 }
 
 // def call(String name = "venv") {
