@@ -1,7 +1,11 @@
 #!groovy
 import jenkins.pipeline.lib.Constants
 
-def ListHtml() {
+// def ListHtml() {
+//     return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
+// }
+
+def ListHtml(String name) {
     return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
 }
 
@@ -21,10 +25,34 @@ def PublishHTML() {
                 reportName: REPORT_NAME,
                 reportTitles: REPORT_NAME])
                 
-            DELETE = sh(script: 'rm -rf ' + f.path, returnStdout: true)
+            // DELETE = sh(script: 'rm -rf ' + f.path, returnStdout: true)
         }
     }
 }
+
+
+
+
+// def PublishSample(String name) {
+//     def file_list = []
+//     for (f in  ListHtml(name)) {
+//       if (! f.directory) {
+//         echo """Publishing ${f.name} ${f.path} ${f.directory} ${f.length} ${f.lastModified}"""
+//         file_list.add(f.path)
+//       }
+//     }
+    // def obj_list_files
+    // obj_list_files = ListHtml(name)
+    // echo """File list ${file_list} ${obj_list_files}"""
+
+    // publishHTML (target : [allowMissing: false,
+    //     alwaysLinkToLastBuild: true,
+    //     keepAll: true,
+    //     reportDir: """samples/${name}""",
+    //     reportFiles: obj_list_files.join(','),
+    //     reportName: name])
+// }
+
 
 def call(args) {
     PublishHTML()

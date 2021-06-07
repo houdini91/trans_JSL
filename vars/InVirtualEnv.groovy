@@ -1,7 +1,7 @@
 #!groovy
 import jenkins.pipeline.lib.Constants
 
-def InVirtualEnv(String name, String command) {
+def InVirtualEnv(String name = "venv", String command = "python --version") {
     echo "Sampling2 $name $command"
     sh(script:'''#!/bin/bash
     source ''' + name + '''/bin/activate && ''' + command, label: "VIRTUALENV: ${command}")
