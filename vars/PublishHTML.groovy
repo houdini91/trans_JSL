@@ -24,8 +24,6 @@ def PublishHTML() {
                 reportFiles: f.name,
                 reportName: REPORT_NAME,
                 reportTitles: REPORT_NAME])
-                
-            // DELETE = sh(script: 'rm -rf ' + f.path, returnStdout: true)
         }
     }
 }
