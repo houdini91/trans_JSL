@@ -9,6 +9,6 @@ def createVirtualEnv(String name) {
     sh "virutalenv ${name}"
 }
 
-def call(String name= "venv") {
+def call(String name="venv") {
     createPython3VirtualEnv(name)
 }
