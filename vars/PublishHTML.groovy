@@ -1,22 +1,14 @@
 #!groovy
 import jenkins.pipeline.lib.Constants
 
-// def ListHtml() {
-//     return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
-// }
 
 def ListHTML(String name) {
-    return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
-}
-
-def PublishHTML2() {
-    echo """GOT HERE"""
-    return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
+    return findFiles(glob: """**/${name}/**/html/*.html""")
 }
 
 
 def PublishHTML() {
-    for (f in ListHTML()) {
+    for (f in ListHTML(env.STAGE_NAME)) {
         if (! f.directory) {
             echo """Publishing ${f.name} ${f.path} ${f.directory} ${f.length} ${f.lastModified}"""
             REPORT_DIR = sh(script: 'dirname ' + f.path, returnStdout: true)
