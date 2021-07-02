@@ -21,5 +21,5 @@ def call(String name="venv") {
     sh """echo GOT NAME $name"""
     sh """echo GOT NAME ${name}"""
 
-    createPython3VirtualEnv(name=name)
+    createPython3VirtualEnv(name=$name)
 }
