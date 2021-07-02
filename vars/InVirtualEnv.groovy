@@ -8,5 +8,6 @@ def InVirtualEnv(String name = "venv", String command = "python --version") {
 }
 
 def call(String name = "venv", String command="python --version") {
+    echo "Sampling22 $name $command"
     InVirtualEnv(name, command)
 }
