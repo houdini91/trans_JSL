@@ -10,7 +10,8 @@ def ListHtml2(String name) {
 }
 
 def PublishHTML() {
-    for (f in  ListHtml2()) {
+    list = ListHtml2()
+    for (f in list) {
         if (! f.directory) {
             echo """Publishing ${f.name} ${f.path} ${f.directory} ${f.length} ${f.lastModified}"""
             REPORT_DIR = sh(script: 'dirname ' + f.path, returnStdout: true)
