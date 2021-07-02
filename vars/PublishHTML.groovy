@@ -10,6 +10,7 @@ def ListHtml2(String name) {
 }
 
 def PublishHTML2() {
+    echo """GOT HERE"""
 }
 
 
@@ -58,6 +59,7 @@ def PublishHTML() {
 
 
 def call(args) {
+    PublishHTML2()
     PublishHTML()
 }
 
