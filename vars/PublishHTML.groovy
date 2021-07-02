@@ -5,18 +5,18 @@ import jenkins.pipeline.lib.Constants
 //     return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
 // }
 
-def ListHtml2(String name) {
+def ListHTML(String name) {
     return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
 }
 
 def PublishHTML2() {
     echo """GOT HERE"""
+    return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
 }
 
 
 def PublishHTML() {
-    list = ListHtml2()
-    for (f in list) {
+    for (f in ListHTML()) {
         if (! f.directory) {
             echo """Publishing ${f.name} ${f.path} ${f.directory} ${f.length} ${f.lastModified}"""
             REPORT_DIR = sh(script: 'dirname ' + f.path, returnStdout: true)
@@ -59,7 +59,6 @@ def PublishHTML() {
 
 
 def call(args) {
-    ListHtml2()
     PublishHTML2()
     PublishHTML()
 }
