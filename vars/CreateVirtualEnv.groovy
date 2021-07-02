@@ -1,7 +1,7 @@
 #!groovy
 import jenkins.pipeline.lib.Constants
 
-def createPython3VirtualEnv(String name) {
+def CreatePython3VirtualEnv(String name) {
     sh "echo GOT NAME $name"
     sh "echo GOT NAME ${name}"
     sh """echo GOT NAME $name"""
@@ -21,5 +21,5 @@ def call(String name="venv") {
     sh """echo GOT NAME $name"""
     sh """echo GOT NAME ${name}"""
 
-    createPython3VirtualEnv(name=$name)
+    CreatePython3VirtualEnv(name)
 }
