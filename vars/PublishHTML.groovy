@@ -5,12 +5,12 @@ import jenkins.pipeline.lib.Constants
 //     return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
 // }
 
-def ListHtml(String name) {
+def ListHtml2(String name) {
     return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
 }
 
 def PublishHTML() {
-    for (f in  ListHtml()) {
+    for (f in  ListHtml2()) {
         if (! f.directory) {
             echo """Publishing ${f.name} ${f.path} ${f.directory} ${f.length} ${f.lastModified}"""
             REPORT_DIR = sh(script: 'dirname ' + f.path, returnStdout: true)
