@@ -59,6 +59,7 @@ def PublishHTML() {
 
 
 def call(args) {
+    ListHtml2()
     PublishHTML2()
     PublishHTML()
 }
