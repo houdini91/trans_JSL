@@ -9,8 +9,7 @@ def ListHtml2(String name) {
     return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
 }
 
-def listHtml2(String name) {
-    return findFiles(glob: """**/${env.STAGE_NAME}/**/html/*.html""")
+def PublishHTML2() {
 }
 
 
