@@ -7,7 +7,7 @@ def InVirtualEnv(String name = "venv", String command = "python --version") {
     source ''' + name + '''/bin/activate && ''' + command, label: "VIRTUALENV: ${command}")
 }
 
-def call(String name = "venv", String command="python --version") {
+def call(String name="venv", String command="python --version") {
     echo "Sampling22 $name $command"
     InVirtualEnv(name, command)
 }
